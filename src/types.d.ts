@@ -225,10 +225,12 @@ export interface Collapse {
 
 export interface Form {
   inputs?: Array<Input>;
+  selects?:Array<Options>,
   textarea?: Textarea;
   disclaimer?: Disclaimer;
   button?: string;
   description?: string;
+  icons?: string;
 }
 
 // WIDGETS
@@ -304,4 +306,10 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   callToAction?: CallToAction;
 }
 
-export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
+export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {
+  type?: string;
+  name?: string;
+  label?: string;
+  icons?: string;
+  options?: Array<{ value: string; label: string }>;
+}

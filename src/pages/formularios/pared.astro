@@ -40,21 +40,21 @@ if (Astro.request.method === 'POST') {
 }
 
 
-
 const metadata = {
-  title: 'Contacta con nosotros',
+  title: 'Contacta con nosotros para calendarios de pared',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="contacto" title="Hola! ¿Necesitas ayuda?" />
+  <HeroText 
+  tagline="contacto" title="Solicita información calidendarios para pared" />
 
   <ContactUs
     id="form"
-    title="Envíanos tus consultas sobre calendarios"
-    subtitle="Estamos aquí para ayudarte a crear el calendario perfecto, desde el diseño hasta la impresión, con opciones personalizadas y soporte en cada paso."
+    title="Envíanos tus consultas sobre calendarios para pared"
+    subtitle="Estamos aquí para ayudarte a crear el calendario perfecto para pared, desde el diseño hasta la impresión, con opciones personalizadas y soporte en cada paso."
     inputs={[
       {
         type: 'text',
@@ -62,15 +62,42 @@ const metadata = {
         label: 'Nombre',
       },
       {
+        type: 'text',
+        name: 'empresa',
+        label: 'Empresa',
+      },
+      {
+        type: 'text',
+        name: 'telefono',
+        label: 'Teléfono',
+      },
+      {
         type: 'email',
         name: 'email',
         label: 'Correo electrónico',
       },
+      {
+        type: 'selects',
+        name: 'selects',
+        label: 'Seleciona modelo',
+      },
+      {
+        type: 'select',
+        name: 'Acabado',
+        label: 'Brillante o mate del calendario',
+      },
+      {
+        type: 'select',
+        name: 'Medida',
+        label: 'Medida del calendario',
+      },
+      {
+        type: 'select',
+        name: 'Cantidad',
+        label: 'Selecciona cantidad',
+      },
     ]}
-    textarea={{
-      label: 'Mensaje',
-      name: 'msg'
-    }}
+  
     disclaimer={{
       label:
         'He leído y acepto la Política de Privacidad.',

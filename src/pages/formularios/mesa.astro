@@ -17,9 +17,6 @@ if (Astro.request.method === 'POST') {
     const email = data.get('email');
     const message = data.get('message');
 
-    console.log(message);
-    // TODO: Do not forget to do validation and error handling over received data from your contact form.
-
     // Sending email
     const msg = {
       to: email, // Change to your recipient
@@ -40,21 +37,22 @@ if (Astro.request.method === 'POST') {
 }
 
 
-
 const metadata = {
-  title: 'Contacta con nosotros',
+  title: 'Contacta con nosotros para calendarios de mesa',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="contacto" title="Hola! ¿Necesitas ayuda?" />
+  <HeroText 
+  tagline="contacto" title="Solicita información calidendarios de sobremesa" />
 
   <ContactUs
     id="form"
-    title="Envíanos tus consultas sobre calendarios"
-    subtitle="Estamos aquí para ayudarte a crear el calendario perfecto, desde el diseño hasta la impresión, con opciones personalizadas y soporte en cada paso."
+    title="Envíanos tus consultas sobre calendarios para mesa personalizados"
+    subtitle="Estamos aquí para ayudarte a crear el calendario perfecto para pared, desde el diseño hasta la impresión, con opciones personalizadas y soporte en cada paso."
+    icons=''
     inputs={[
       {
         type: 'text',
@@ -62,15 +60,42 @@ const metadata = {
         label: 'Nombre',
       },
       {
+        type: 'text',
+        name: 'empresa',
+        label: 'Empresa',
+      },
+      {
+        type: 'text',
+        name: 'telefono',
+        label: 'Teléfono',
+      },
+      {
         type: 'email',
         name: 'email',
         label: 'Correo electrónico',
       },
+      {
+        type: 'select',
+        name: 'selects',
+        label: 'Seleciona modelo',
+      },
+      {
+        type: 'options',
+        name: 'Acabado',
+        label: 'Brillante o mate del calendario',
+      },
+      {
+        type: 'select',
+        name: 'Medida',
+        label: 'Medida del calendario',
+      },
+      {
+        type: 'select',
+        name: 'Cantidad',
+        label: 'Selecciona cantidad',
+      },
     ]}
-    textarea={{
-      label: 'Mensaje',
-      name: 'msg'
-    }}
+  
     disclaimer={{
       label:
         'He leído y acepto la Política de Privacidad.',

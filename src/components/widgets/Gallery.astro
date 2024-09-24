@@ -26,6 +26,7 @@ const { images = [] } = Astro.props;
     if (mainSwiper) {
     mainSwiper.destroy();
     mainSwiper = null;
+    lightbox.destroy();
   }
   if (thumbsSwiper) {
     thumbsSwiper.destroy(); // Destruir correctamente
@@ -64,6 +65,7 @@ const { images = [] } = Astro.props;
     thumbs: {
       swiper: thumbsSwiper,
     },
+    
   });
   }
 
@@ -74,9 +76,11 @@ const lightbox = new PhotoSwipeLightbox({
   pswpModule: () => import('photoswipe')
 });
 lightbox.init();
+
    //Re-inicializar Swiper cada vez que se monta el componente
    document.addEventListener('astro:after-swap', () => {
     initializeSwiper();
+    lightbox.init();
   });
   //Llamamos función principal
   setTimeout(() => {
@@ -95,7 +99,7 @@ lightbox.init();
             class="swiper-slide"
             href={image.src}
             data-pswp-width="600" data-pswp-height="600"
-            target="_blank"
+           
             data-cropped="true"
           >
             <img 
